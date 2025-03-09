@@ -1,0 +1,132 @@
+<div class="container col-md-9 col-lg-10 mt-5">
+  <div *ngIf="isLoading" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!isLoading" class="container-fluid px-0">
+    <!-- Top Categories Navigation -->
+    <nav class="categories-nav">
+      <ul class="category-list">
+        <li class="category-item"(click)="toggleSidebar()">
+          <button class="menu-toggle" >
+            <i class="fas fa-bars"></i>
+          </button>
+        </li>
+        <li
+          class="category-item"
+          [class.active]="selectedCategory === 'all'"
+          (click)="filterByCategory('all')"
+        >
+          All Products
+        </li>
+        <li
+          class="category-item"
+          *ngFor="let category of categories"
+          [class.active]="selectedCategory === category"
+          (click)="filterByCategory(category)"
+        >
+          {{ category | titlecase }}
+        </li>
+        <li class="category-item" routerLink="home" routerLinkActive="active">
+          Home
+        </li>
+        <li class="category-item" routerLink="wishlist" routerLinkActive="active">
+          Wishlist
+        </li>
+      </ul>
+    </nav>
+
+    <div class="row">
+      <!-- Categories Sidebar -->
+      <div
+        class="col-md-3 col-lg-2 sidebar"
+        [class.sidebar-hidden]="!isSidebarOpen"
+      >
+        <div class="categories-section">
+          <h4 class="category-title mt-4">Categories</h4>
+          <mat-divider></mat-divider>
+          <mat-nav-list>
+            <a
+              mat-list-item
+              [class.active]="selectedCategory === 'all'"
+              (click)="filterByCategory('all')"
+            >
+              All Products
+            </a>
+            <a
+              mat-list-item
+              *ngFor="let category of categories"
+              [class.active]="selectedCategory === category"
+              (click)="filterByCategory(category)"
+            >
+              {{ category | titlecase }}
+            </a>
+          </mat-nav-list>
+          <!--  Price Filter Section -->
+          <h4 class="category-title mt-4">Price</h4>
+          <mat-divider></mat-divider>
+          <div class="price-filters">
+            <mat-radio-group [(ngModel)]="selectedPriceRange" (change)="filterByPrice($event.value)">
+              <div class="price-option">
+                <mat-radio-button value="all">All Prices</mat-radio-button>
+              </div>
+              <div class="price-option">
+                <mat-radio-button value="under-100">Under ₹100</mat-radio-button>
+              </div>
+              <div class="price-option">
+                <mat-radio-button value="100-300">₹100 - ₹300</mat-radio-button>
+              </div>
+              <div class="price-option">
+                <mat-radio-button value="500-700">₹500 - ₹700</mat-radio-button>
+              </div>
+              <div class="price-option">
+                <mat-radio-button value="over-700">Over ₹700</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products List -->
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+  <div *ngIf="!hasProducts()" class="w-100 d-flex justify-content-center align-items-center" >
+    <div class="text-center">
+      <h3 class="mb-3" style="font-size: 24px;">No Products Found</h3>
+      <p class="text-muted">There are no products available in the selected category and price range.</p>
+    </div>
+  </div>
+  <div class="col" *ngFor="let product of filteredProducts">
+          <mat-card
+            class="product-card h-100"
+            [routerLink]="['details/', product.id]"
+          >
+            <div class="image-container">
+              <img mat-card-image [src]="product.image" [alt]="product.title" />
+            </div>
+            <mat-card-content>
+              <h5 class="product-title">{{ product.title }}</h5>
+              <div class="product-info">
+                <div class="rating mb-2">
+                  <span class="stars">
+                    <i class="fas fa-star"></i>
+                    {{ product.rating.rate }}
+                  </span>
+                  <span class="count">({{ product.rating.count }})</span>
+                </div>
+                <div class="price">
+                  <span class="currency">₹</span>
+                  <span class="amount">{{
+                    product.price | number : "1.0-0"
+                  }}</span>
+                  <span class="decimal">.00</span>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button class="w-100">Add to Cart</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
