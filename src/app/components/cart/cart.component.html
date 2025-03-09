@@ -1,0 +1,102 @@
+<section id="cart">
+  <div class="container-fluid p-md-5 p-3">
+    @if (cart.length > 0) {
+    <div class="row g-3">
+      <!-- Cart Items Section -->
+      <div class="col-lg-9 order-lg-1 order-2">
+        <div class="bg-white p-4 shadow-sm">
+          <div class="d-flex justify-content-between"> 
+            <h2 class="fs-4">Shopping Cart</h2>
+            <span class="text-muted fw-medium align-self-end d-none d-md-inline">Price</span>
+          </div>
+          <mat-divider></mat-divider>
+          @for (product of products; track $index) {
+          <mat-card class="shadow-none border-0 my-4">
+            <div class="row align-items-center">
+              <div class="col-md-2 ps-4">
+                <img [src]="product.image" class="img-fluid" alt="Product-Image" />
+              </div>
+              <div class="col-md-8">
+                <h3 class="fw-medium m-0">{{ product.title }}</h3>
+                <span class="text-success">In Stock</span>
+                <div class="d-flex align-items-baseline">
+                  <input type="checkbox" id="gift-checkbox" name="gift" />
+                  <label for="gift-checkbox" class="px-1 text-gray-700 cursor-pointer">
+                    This is a gift
+                  </label>
+                  <a href="#">Learn more</a>
+                </div>
+                <div class="d-inline d-md-none col-md-2 text-md-end mt-2">
+                  <span class="me-2">Price</span>
+                  <span class="fs-5 fw-medium">${{ product.price }}</span>
+                </div>
+                <div class="mt-2">
+                  <div class="d-inline-block border border-3 border-warning rounded-pill">
+                    <div class="d-flex align-items-center p-1">
+                      <button (click)="getProductCount(product.id) > 1 
+                        ? updateQuantity(product.id, getProductCount(product.id) - 1) 
+                        : removeProduct(product.id)"
+                        class="border-0 bg-transparent fa-solid {{ getProductCount(product.id) > 1 ? 'fa-minus' : 'fa-trash' }}">
+                      </button>
+                      <span class="fw-bold px-3">{{ getProductCount(product.id) }}</span>
+                      <button (click)="updateQuantity(product.id, getProductCount(product.id) + 1)"
+                        class="border-0 bg-transparent fa-solid fa-plus">
+                      </button>
+                    </div>
+                  </div>
+                  <span class="px-2 text-muted">|</span>
+                  <a (click)="removeProduct(product.id)">Delete</a>
+                  <span class="px-2 text-muted">|</span>
+                  <a>Save for later</a>
+                  <span class="px-2 text-muted">|</span>
+                  <a>Compare with similar items</a>
+                  <span class="px-2 text-muted">|</span>
+                  <a>Share</a>
+                </div>
+              </div>
+              <div class="col-md-2 text-end d-none d-md-inline">
+                <span class="fs-5 fw-medium">${{ product.price }}</span>
+              </div>
+            </div>
+          </mat-card>
+          <mat-divider></mat-divider>
+          }
+          <div class="d-flex justify-content-center justify-content-md-between align-items-center">
+            <button (click)="clearCart()" class="btn btn-warning rounded-pill mt-2">Clear Cart</button>
+            <h4 class="mb-1 d-none d-md-inline">
+              Subtotal ({{ cartItemsCount }} items): <span class="fw-semibold">${{ totalPrice }}</span>
+            </h4>
+          </div>
+          
+        </div>
+      </div>
+      <!-- Checkout Section -->
+      <div class="col-lg-3 order-lg-2 order-1">
+        <div class="bg-white p-4 shadow-sm">
+          <h4 class="mb-1">
+            Subtotal ({{ cartItemsCount }} items): <span class="fw-semibold">${{ totalPrice }}</span>
+          </h4>
+          <div class="d-flex align-items-baseline">
+            <input type="checkbox" id="gift-checkbox-main" name="gift" />
+            <label for="gift-checkbox-main" class="px-2 text-gray-700 cursor-pointer">
+              This order contains a gift
+            </label>
+          </div>
+          <button class="btn btn-warning rounded-pill w-100 mt-2">Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+    } @else {
+    <!-- Empty Cart -->
+    <div class="row bg-white p-4 shadow-sm d-flex flex-column flex-md-row align-items-center text-center text-md-start">
+      <div class="col-md-4">
+        <img class="w-100" src="assets/images/empty cart.svg" alt="empty-cart-img" />
+      </div>
+      <div class="col-md-8">
+        <p class="fs-4 fw-medium">Your Amazon Cart is empty</p>
+        <a class="fw-medium text-decoration-none" href="#">Shop today's deals</a>
+      </div>
+    </div>    
+    }
+  </div>
+</section>
