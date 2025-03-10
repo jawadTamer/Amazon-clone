@@ -1,0 +1,135 @@
+
+<section class="details my-5">
+    <div class="container-fluid">
+        <div class="row g-2">
+            <div class="col-lg-4 col-md-4 col-sm ">
+                <div class="image m-auto pt-5">
+                    <img [src]="productDetails.image" [alt]="productDetails.title" class="w-100 h-100">
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm">
+                <div class="row g-2 ">
+                    <div class="col-lg-8 col-sm">
+                        <div class="product-info">
+                            <span class="category text-primary ">
+                                {{productDetails.category | uppercase }} 
+                            </span>
+                            <p class="description mt-3 fs-6 text-secondary">
+                                {{productDetails.description}}
+                            </p>
+                            <div class="rating-info d-flex ">
+                                <div class="py-3   d-flex justify-content-between align-items-center">
+                                    
+                                    <span class="mid-font d-block ">{{productDetails.rating.rate}}</span>
+                                    @for(rateNum of [1,2,3,4,5] ; track rateNum){
+                                        <i class="fa-regular fa-star mid-font rating-color "
+                                            [class.fa-solid]="productDetails.rating.rate >= rateNum"
+                                            
+                                        ></i>
+                                    }
+                                    
+                                    <span class="mx-3  text-primary">{{productDetails.rating.count}} ratings</span>
+                                    <span class="me-3 text-primary">|</span>
+                                    <a class=" text-primary text-decoration-none cursor-pointer">Search This Page</a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="price mb-3">
+                                <div class=" fw-bold position-relative"><span class="fs-4">{{productDetails.price}}</span>
+                                    <div class="position-absolute top-0 ms-2  translate-middle badge text-black  ">EGY</div>
+                                </div>
+                            </div>
+                            <p class="fs-5">All price include VAT.</p>
+                            <div class="discount">
+                                <a class="text-primary text-decoration-none me-2">Sign in to redeem</a>
+                                <span class=" light-green me-2">Extra 20%</span>
+                                <span class="fs-6">off  with meem credit cards.</span>
+                                <p class="fs-6">Enter code MEEM20 at checkout. Discount by Amazon.</p>
+                            </div>
+                            <div class="more-info">
+                                <h3 class="m-0">About this item</h3>
+                                <ul class="fs-6">
+                                    <li>Feature: square neck, cutout, puff sleeve, ruffle hem, tie back aline dress</li>
+                                    <li>Fabric has some stretch,and it's soft and comfortable</li>
+                                    <li>Suitable for daily wear, holidays, dating, vacation, weekend casual</li>
+                                    <li>Care Instructions: Machine wash or professional dry clean</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm">
+                        
+                        <div class="border border-1 border-black w-100 h-100  rounded p-4">
+                            <div class=" fw-bold position-relative mb-4" ><span class="fs-3">{{productDetails.price}}</span>
+                                <div class="position-absolute top-0 ms-2  translate-middle badge text-black  ">EGY</div>
+                            </div>
+                            <p class="mb-3 fs-6">SAR96 delivery <span class="fw-bold">6-9 October.</span></p>
+                            <div class="location mb-3">
+                                <i class="fa-solid fa-location-dot me-2 fs-5"></i>
+                                <span class="text-primary fs-6 ">Delivery to Riyadh - Update Location</span>
+                            </div>
+                            
+                            <p class="text-danger fs-6 fw-bold mb-3">Usually ships within 4 to 5 days</p>
+                            <!-- background: #B12704; -->
+
+                            <div class="dropdown  mb-3">
+                                <button class="btn btn-light border border-1 border-secondary dropdown-toggle w-100" 
+                                type="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                    Quantity: 1
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn btn-warning rounded-pill d-block w-100 mb-3">Add To Cart</div>
+                            <div class="btn btn-orange rounded-pill d-block w-100 mb-3">Buy Now</div>
+                            <!-- ul -->
+                            <table class="table table-borderless">
+                                <tbody>
+                                  <tr>
+                                    <td>Ships from</td>
+                                    <td>Monatik LLC</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Sold by</td>
+                                    <td class="text-primary">Monatik LLC</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Payment</td>
+                                    <td class="text-primary">Secure transaction</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            <hr>
+                            <button class="btn btn-light border border-1 border-dark d-block w-100">Add To List</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
