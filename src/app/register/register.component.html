@@ -1,0 +1,49 @@
+<html>
+    <body>
+<div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="logo">
+    <h2>Create Account</h2>
+  
+    <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+      <div class="input-group">
+        <label for="name">Your name</label>
+        <input type="text" id="name" class="input-field" formControlName="name" placeholder="Your name">
+        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+          <small class="error">Name must be between 3 and 50 characters.</small>
+        </div>
+      </div>
+  
+      <div class="input-group">
+        <label for="mobile">Mobile number</label>
+        <input type="text" id="mobile" class="input-field" formControlName="mobile" placeholder="Mobile number">
+        <div *ngIf="registerForm.get('mobile')?.invalid && registerForm.get('mobile')?.touched">
+          <small class="error">Please enter a valid Egyptian mobile number.</small>
+        </div>
+      </div>
+  
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="input-field" formControlName="password" placeholder="Password">
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          <small class="error">Password must contain at least one uppercase letter, one lowercase letter, and one number.</small>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn" [disabled]="registerForm.invalid || isLoading">
+        {{ isLoading ? 'Verifying...' : 'Verify mobile number' }}
+      </button>
+    </form>
+  
+    <div class="footer">
+      <p><strong>Buying for work?</strong> <a href="#">Create a free business account</a></p>
+      <p>Already have an account? <a routerLink="/login">Sign in</a></p>
+      <p>By creating an account or logging in, you agree to Amazon’s <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.</p>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p><a href="#">Conditions of Use</a> &nbsp; | &nbsp; <a href="#">Privacy Notice</a> &nbsp; | &nbsp; <a href="#">Help</a></p>
+    <p>© 1996-2024, Amazon.com, Inc. or its affiliates</p>
+  </div>
+  </body>
+  </html>
