@@ -112,3 +112,4 @@ This project is open-source and available under the MIT License.
 **Team Members:** Salma Saeed, Reham Saeed, Omar Mohammed, Walid Ragb
 
 GitHub Repository: [Amazon Clone](https://github.com/jawadTamer/Amazon-clone.git)
+Project Demo: [Amazon Clone](https://amazon-clone36.netlify.app/home)
