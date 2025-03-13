@@ -109,6 +109,6 @@ This project is open-source and available under the MIT License.
 
 ## Author
 **Team Leader:** Jawad Tamer
-**Team Members:** Salma Saeed, Reham Saeed, Omar Mohammed
+**Team Members:** Salma Saeed, Reham Saeed, Omar Mohammed, Walid Ragb
 
 GitHub Repository: [Amazon Clone](https://github.com/jawadTamer/Amazon-clone.git)
