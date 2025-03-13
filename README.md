@@ -2,26 +2,113 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
 
-## Development server
+# Frontend Angular Project Documentation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Overview
+This project is a frontend application built using Angular v17, Bootstrap for styling, Firebase for backend services, and FakeStore API for mock e-commerce data.
 
-## Code scaffolding
+## Technologies Used
+- **Angular Material** - UI component library
+- **SweetAlert** - User-friendly alert dialogs
+- **Angular v17** - Frontend framework
+- **Bootstrap** - UI styling
+- **Firebase** - Backend services (authentication, database, hosting)
+- **FakeStore API** - Mock e-commerce API for product data
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js** (v16 or later)
+- **Angular CLI** (v17)
+- **Firebase CLI** (if deploying to Firebase Hosting)
 
-## Build
+### Steps
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd <project-directory>
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Run the development server:
+   ```sh
+   ng serve
+   ```
+4. Open the application in the browser:
+   ```
+   http://localhost:4200
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Firebase Configuration
+1. Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+2. Add a web app and obtain Firebase configuration.
+3. Update `src/environments/environment.ts`:
+   ```typescript
+   export const environment = {
+     production: false,
+     firebase: {
+       apiKey: "YOUR_API_KEY",
+       authDomain: "YOUR_AUTH_DOMAIN",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_STORAGE_BUCKET",
+       messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+       appId: "YOUR_APP_ID"
+     }
+   };
+   ```
 
-## Running unit tests
+## FakeStore API Usage
+- The application fetches product data from FakeStore API.
+- API Endpoint: `https://fakestoreapi.com/products`
+- Example HTTP request:
+  ```typescript
+  fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then(data => console.log(data));
+  ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Project Structure
+```
+/src
+│-- app/
+│   │-- components/        # UI Components
+│   │-- shared/            # Shared modules and utilities
+│-- assets/                # Static assets
+│-- index.html             # Main HTML file
+│-- main.ts                # Main TypeScript entry file
+│-- styles.css             # Global styles
+```
 
-## Running end-to-end tests
+## Deployment
+### Firebase Hosting Deployment
+1. Install Firebase CLI:
+   ```sh
+   npm install -g firebase-tools
+   ```
+2. Login to Firebase:
+   ```sh
+   firebase login
+   ```
+3. Initialize Firebase in the project:
+   ```sh
+   firebase init
+   ```
+4. Build the Angular project:
+   ```sh
+   ng build --configuration=production
+   ```
+5. Deploy to Firebase:
+   ```sh
+   firebase deploy
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## License
+This project is open-source and available under the MIT License.
 
-## Further help
+## Author
+**Team Leader:** Jawad Tamer
+**Team Members:** Salma Saeed, Reham Saeed, Omar Mohammed, Walid Ragb
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+GitHub Repository: [Amazon Clone](https://github.com/jawadTamer/Amazon-clone.git)
