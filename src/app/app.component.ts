@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import { RegisterComponent } from "./components/register/register.component";
+
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 
@@ -9,7 +11,8 @@ import { FooterComponent } from "./components/footer/footer.component";
   standalone: true,
   imports: [RouterOutlet, RegisterComponent, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [HeaderComponent, FooterComponent]
 })
 export class AppComponent {
   title = 'Amazon-clone';

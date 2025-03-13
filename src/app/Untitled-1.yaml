@@ -1,0 +1,10 @@
+git clone https://github.com/jawadTamer/Amazon-clone.git
+cd Amazon-clone
+git checkout -b nav-footer
+npm i
+ng generate component components/header
+ng generate component components/footer
+// اشتغل على الكود
+git add .
+git commit -m "إضافة header و footer"
+git push origin nav-footer

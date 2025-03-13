@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,13 +8,13 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  host: {
-    class: 'contents'
-  }
+  
+
 })
 export class HeaderComponent {
   isMenuOpen = false;
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
 }
