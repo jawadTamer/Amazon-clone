@@ -12,7 +12,6 @@ import { FooterComponent } from "./components/footer/footer.component";
   imports: [RouterOutlet, RegisterComponent, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent, FooterComponent]
 })
 export class AppComponent {
   title = 'Amazon-clone';
