@@ -1,0 +1,15 @@
+.image{
+    width: 18rem;
+    height:18rem;
+}
+.light-green{
+    background-color: #71ED58;
+}
+
+.btn-orange{
+    background-color:  #FFA41C;
+}
+
+.rating-color{
+    color:#FFA41C;
+}
