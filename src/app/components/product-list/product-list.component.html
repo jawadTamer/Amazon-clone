@@ -26,10 +26,10 @@
         >
           {{ category | titlecase }}
         </li>
-        <li class="category-item" routerLink="home" routerLinkActive="active">
-          Home
+        <li class="category-item" [routerLink]="['/cart']" routerLinkActive="active">
+          Cart
         </li>
-        <li class="category-item" routerLink="wishlist" routerLinkActive="active">
+        <li class="category-item" [routerLink]="['/wishlist']" routerLinkActive="active">
           Wishlist
         </li>
       </ul>
@@ -95,38 +95,32 @@
     </div>
   </div>
   <div class="col" *ngFor="let product of filteredProducts">
-          <mat-card
-            class="product-card h-100"
-            [routerLink]="['details/', product.id]"
-          >
-            <div class="image-container">
-              <img mat-card-image [src]="product.image" [alt]="product.title" />
-            </div>
-            <mat-card-content>
-              <h5 class="product-title">{{ product.title }}</h5>
-              <div class="product-info">
-                <div class="rating mb-2">
-                  <span class="stars">
-                    <i class="fas fa-star"></i>
-                    {{ product.rating.rate }}
-                  </span>
-                  <span class="count">({{ product.rating.count }})</span>
-                </div>
-                <div class="price">
-                  <span class="currency">₹</span>
-                  <span class="amount">{{
-                    product.price | number : "1.0-0"
-                  }}</span>
-                  <span class="decimal">.00</span>
-                </div>
-              </div>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button class="w-100">Add to Cart</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
+    <mat-card class="product-card h-100">
+      <div class="image-container" [routerLink]="['/product', product.id]">
+        <img mat-card-image [src]="product.image" [alt]="product.title" />
       </div>
-    </div>
+      <mat-card-content [routerLink]="['/product', product.id]">
+        <h5 class="product-title">{{ product.title }}</h5>
+        <div class="product-info">
+          <div class="rating mb-2">
+            <span class="stars">
+              <i class="fas fa-star"></i>
+              {{ product.rating.rate }}
+            </span>
+            <span class="count">({{ product.rating.count }})</span>
+          </div>
+          <div class="price">
+            <span class="currency">₹</span>
+            <span class="amount">{{
+              product.price | number : "1.0-0"
+            }}</span>
+            <span class="decimal">.00</span>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button class="w-100" (click)="addToCart($event, product.id)">Add to Cart</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>

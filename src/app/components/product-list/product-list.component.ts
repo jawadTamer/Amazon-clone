@@ -7,12 +7,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ProductsService } from '../../shared/service/products.service';
 import { Product } from '../../shared/service/products.service';
-import { RouterLink, RouterModule } from '@angular/router';
-import { RouterLinkActive } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../../shared/service/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-list',
@@ -24,8 +25,6 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    RouterLinkActive,
-    RouterLink,
     RouterModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
@@ -42,7 +41,10 @@ export class ProductListComponent implements OnInit {
   filteredProducts: Product[] = [];
   isSidebarOpen: boolean = true;
   selectedPriceRange: string = 'all';
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private cartService: CartService
+  ) {}
  
   isLoading: boolean = true;
   ngOnInit() {
@@ -93,4 +95,20 @@ export class ProductListComponent implements OnInit {
     }
   }
 
+  addToCart(event: Event, productId: number): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.cartService.addToCart(productId);
+    
+ 
+    Swal.fire({
+      title: 'Success!',
+      text: 'Item added to cart successfully',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1500,
+      position: 'top-end',
+      toast: true
+    });
+  }
 }
