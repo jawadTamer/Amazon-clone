@@ -22,5 +22,22 @@
    width: 50%;
  }
 }
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-pointer:hover {
+  opacity: 0.9;
+}
+
+img.cursor-pointer:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+h3.cursor-pointer:hover {
+  color: #c45500;
+  text-decoration: underline;
+}
 
 

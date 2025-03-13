@@ -3,11 +3,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { Cart, CartService } from '../../shared/service/cart.service';
 import { Product, ProductsService } from '../../shared/service/products.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [MatDividerModule, MatCardModule],
+  imports: [
+    MatDividerModule, 
+    MatCardModule,
+    RouterModule 
+  ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
