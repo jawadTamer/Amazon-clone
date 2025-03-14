@@ -1,4 +1,41 @@
-header {
-    font-family: Arial, sans-serif;
-  }
-  
+.top-header {
+  background-color: #131921;
+}
+
+.bottom-nav {
+  background-color: #232f3e;
+}
+
+.navbar .nav-link {
+  color: white;
+  font-size: 13px;
+  padding: 0 10px;
+}
+
+.navbar .nav-link:hover {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+.form-select,
+.form-control,
+.btn {
+  border-radius: 0 !important;
+}
+.sub-header {
+  background-color: #232f3e; /* نفس لون أمازون */
+}
+
+.header-link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 4px 6px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.header-link:hover {
+  color: #febd69; /* لون hover مثل أمازون */
+  border-bottom: 2px solid #febd69;
+  text-decoration: none;
+}

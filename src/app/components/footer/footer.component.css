@@ -1,0 +1,23 @@
+  .footer-link {
+    color: #ddd;
+    text-decoration: none;
+  }
+
+  .footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  footer ul {
+    padding-left: 0;
+  }
+
+  footer li {
+    margin-bottom: 8px;
+  }
+  .bT{
+    background-color: #232F3E;
+  }
+  .bb{
+    background-color: #131A22;
+  }
