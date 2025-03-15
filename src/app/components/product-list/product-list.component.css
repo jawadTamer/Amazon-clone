@@ -116,9 +116,27 @@
   margin-bottom: 20px;
   position: fixed;
   width: 100%;
-  z-index: 1001;
-  top: 0;
+  z-index: 999; /* Adjusted to be below header */
+  top: 108px; /* Adjusted to account for header height */
   left: 0;
+}
+
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  transition: transform 0.3s ease;
+  position: fixed;
+  top: 108px; 
+  left: 0;
+  width: 280px;
+  overflow-y: auto;
+  z-index: 998; 
+}
+
+.container-fluid {
+  padding-top: 140px; /* Adjusted to account for header and categories nav */
 }
 
 .category-list {
@@ -163,15 +181,21 @@
   background-color: #fff;
   padding: 20px;
   border-right: 1px solid #ddd;
-  height: 100vh;
+  height: calc(100vh - 108px); /* Adjusted height to account for header */
   transition: transform 0.3s ease;
   position: fixed;
-  top: 0;
+  top: 108px; /* Align with categories nav */
   left: 0;
   width: 280px;
-  padding-top: 60px;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 998;
+}
+
+.sidebar-hidden {
+  transform: translateX(-100%);
+  width: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .categories-section {
@@ -181,7 +205,7 @@
   padding-bottom: 20px;
 }
 
-/* Add smooth scrollbar for webkit browsers */
+/* Scrollbar styles */
 .sidebar::-webkit-scrollbar {
   width: 8px;
 }

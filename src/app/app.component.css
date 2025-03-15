@@ -1,0 +1,23 @@
+.layout-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001; /* Increased z-index to be above categories-nav */
+}
+
+.main-content {
+  margin-top: 120px; /* Increased margin to accommodate both header and categories nav */
+  flex: 1;
+}
+
+.fixed-footer {
+  width: 100%;
+  z-index: 1000;
+}

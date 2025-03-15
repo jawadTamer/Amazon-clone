@@ -17,6 +17,7 @@ body {
     text-align: left;
     display: flex;
     flex-direction: column;
+    margin-top: 210px;
 }
 .logo {
     align-self: center;

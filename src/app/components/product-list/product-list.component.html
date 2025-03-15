@@ -26,9 +26,6 @@
         >
           {{ category | titlecase }}
         </li>
-        <li class="category-item" [routerLink]="['/cart']" routerLinkActive="active">
-          Cart
-        </li>
         <li class="category-item" [routerLink]="['/wishlist']" routerLinkActive="active">
           Wishlist
         </li>
@@ -38,7 +35,7 @@
     <div class="row">
       <!-- Categories Sidebar -->
       <div
-        class="col-md-3 col-lg-2 sidebar"
+        class="col-md-3 col-lg-2 sidebar mb-2 mt-5"
         [class.sidebar-hidden]="!isSidebarOpen"
       >
         <div class="categories-section">
